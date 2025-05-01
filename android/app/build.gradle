@@ -1,1 +1,48 @@
-// build.gradle placeholder
+// android/app/build.gradle – إعداد Chaquopy لدمج بايثون مع Flutter
+
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.karam.namesplitter"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        python {
+            buildPython "C:/Users/YOUR_USER_NAME/AppData/Local/Programs/Python/Python311/python.exe" // عدل المسار حسب جهازك
+            pip {
+                install "spacy"
+                install "arabic-reshaper"
+                install "python-bidi"
+            }
+            staticProxy "name_splitter"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}
+
+chaquopy {
+    defaultConfig {
+        pythonVersion "3.11"
+    }
+}
