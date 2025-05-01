@@ -3,7 +3,6 @@ workflows:
     name: Flutter + Chaquopy (spaCy offline)
     environment:
       flutter: stable
-      android: true
     scripts:
       - name: Setup Python dependencies
         script: |
