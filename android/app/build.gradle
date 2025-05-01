@@ -1,5 +1,3 @@
-// android/app/build.gradle – إعداد Chaquopy لدمج بايثون مع Flutter
-
 plugins {
     id 'com.android.application'
     id 'com.chaquo.python'
@@ -16,7 +14,7 @@ android {
         versionName "1.0"
 
         python {
-            buildPython "C:/Users/YOUR_USER_NAME/AppData/Local/Programs/Python/Python311/python.exe" // عدل المسار حسب جهازك
+            buildPython "C:/Users/YOUR_USER_NAME/AppData/Local/Programs/Python/Python311/python.exe"
             pip {
                 install "spacy"
                 install "arabic-reshaper"

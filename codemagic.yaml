@@ -3,15 +3,12 @@ workflows:
     name: Flutter + Chaquopy (spaCy offline)
     environment:
       flutter: stable
-      android: true
     scripts:
       - name: Setup Python dependencies
         script: |
-          cd android
-          echo "chaquopy { defaultConfig { pythonVersion '3.11' } }" >> build.gradle
+          flutter pub get
       - name: Build APK
         script: |
-          flutter pub get
           flutter build apk
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
